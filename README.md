@@ -4,6 +4,8 @@ PageHelper-Spring-Boot-Starter 帮助你集成分页插件到 Spring Boot。
 
 PageHelper-Spring-Boot-Starter will help you use PageHelper with Spring Boot.
 
+Support PageHelper 5.x
+
 ## How to use
 在 pom.xml 中添加如下依赖：
 
