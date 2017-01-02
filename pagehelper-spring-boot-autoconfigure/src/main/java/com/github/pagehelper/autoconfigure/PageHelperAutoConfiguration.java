@@ -34,6 +34,8 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Configuration;
 
 import javax.annotation.PostConstruct;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.Properties;
 
 /**
@@ -49,7 +51,7 @@ import java.util.Properties;
 public class PageHelperAutoConfiguration {
 
     private final SqlSessionFactory sqlSessionFactory;
-    private Properties pagehelper = new Properties();
+    private Map<String, String> pagehelper = new LinkedHashMap<String, String>();
 
     public PageHelperAutoConfiguration(SqlSessionFactory sqlSessionFactory) {
         this.sqlSessionFactory = sqlSessionFactory;
@@ -58,15 +60,17 @@ public class PageHelperAutoConfiguration {
     @PostConstruct
     public void addPageInterceptor() {
         PageInterceptor interceptor = new PageInterceptor();
-        interceptor.setProperties(pagehelper);
+        Properties properties = new Properties();
+        properties.putAll(pagehelper);
+        interceptor.setProperties(properties);
         sqlSessionFactory.getConfiguration().addInterceptor(interceptor);
     }
 
-    public Properties getPagehelper() {
+    public Map<String, String> getPagehelper() {
         return pagehelper;
     }
 
-    public void setPagehelper(Properties pagehelper) {
+    public void setPagehelper(Map<String, String> pagehelper) {
         this.pagehelper = pagehelper;
     }
 }
