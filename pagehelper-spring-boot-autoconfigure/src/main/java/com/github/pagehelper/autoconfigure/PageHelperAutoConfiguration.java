@@ -27,6 +27,7 @@ package com.github.pagehelper.autoconfigure;
 import com.github.pagehelper.PageInterceptor;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -50,12 +51,10 @@ import java.util.Properties;
 @AutoConfigureAfter(MybatisAutoConfiguration.class)
 public class PageHelperAutoConfiguration {
 
-    private final SqlSessionFactory sqlSessionFactory;
-    private Map<String, String> pagehelper = new LinkedHashMap<String, String>();
+    @Autowired
+    private SqlSessionFactory sqlSessionFactory;
 
-    public PageHelperAutoConfiguration(SqlSessionFactory sqlSessionFactory) {
-        this.sqlSessionFactory = sqlSessionFactory;
-    }
+    private Map<String, String> pagehelper = new LinkedHashMap<String, String>();
 
     @PostConstruct
     public void addPageInterceptor() {
