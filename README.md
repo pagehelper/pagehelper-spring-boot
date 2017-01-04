@@ -18,6 +18,17 @@ Add the following dependency to your pom.xml:
 </dependency>
 ```
 
+当你使用低版本 Spring Boot 时，可以尝试使用下面的版本：
+
+When you use a lower version of Spring Boot, you can try using the following versions : 
+```xml
+<dependency>
+    <groupId>com.github.pagehelper</groupId>
+    <artifactId>pagehelper-spring-boot-starter</artifactId>
+    <version>0.1.0</version>
+</dependency>
+```
+
 ## Example
 >https://github.com/abel533/MyBatis-Spring-Boot
 
