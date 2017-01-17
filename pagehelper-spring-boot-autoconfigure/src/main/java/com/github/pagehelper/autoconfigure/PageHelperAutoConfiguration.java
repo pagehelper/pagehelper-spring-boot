@@ -27,15 +27,16 @@ package com.github.pagehelper.autoconfigure;
 import com.github.pagehelper.PageInterceptor;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
-import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.bind.RelaxedPropertyResolver;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.context.EnvironmentAware;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.env.Environment;
 
 import javax.annotation.PostConstruct;
-import java.util.LinkedHashMap;
-import java.util.Map;
 import java.util.Properties;
 
 /**
@@ -45,32 +46,30 @@ import java.util.Properties;
  */
 @Configuration
 @ConditionalOnBean(SqlSessionFactory.class)
-@ConfigurationProperties
-@EnableConfigurationProperties
+@EnableConfigurationProperties(PageHelperProperties.class)
 @AutoConfigureAfter(MybatisAutoConfiguration.class)
-public class PageHelperAutoConfiguration {
+public class PageHelperAutoConfiguration implements EnvironmentAware {
 
-    private final SqlSessionFactory sqlSessionFactory;
-    private Map<String, String> pagehelper = new LinkedHashMap<String, String>();
+    @Autowired
+    private SqlSessionFactory sqlSessionFactory;
 
-    public PageHelperAutoConfiguration(SqlSessionFactory sqlSessionFactory) {
-        this.sqlSessionFactory = sqlSessionFactory;
+    @Autowired
+    private PageHelperProperties pageHelperProperties;
+
+    private RelaxedPropertyResolver resolver;
+
+    @Override
+    public void setEnvironment(Environment environment) {
+        resolver = new RelaxedPropertyResolver(environment, "pagehelper.");
     }
 
     @PostConstruct
     public void addPageInterceptor() {
         PageInterceptor interceptor = new PageInterceptor();
-        Properties properties = new Properties();
-        properties.putAll(pagehelper);
+        Properties properties = pageHelperProperties.getProperties();
+        properties.putAll(resolver.getSubProperties(""));
         interceptor.setProperties(properties);
         sqlSessionFactory.getConfiguration().addInterceptor(interceptor);
     }
 
-    public Map<String, String> getPagehelper() {
-        return pagehelper;
-    }
-
-    public void setPagehelper(Map<String, String> pagehelper) {
-        this.pagehelper = pagehelper;
-    }
 }
