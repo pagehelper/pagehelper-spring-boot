@@ -14,20 +14,15 @@ Add the following dependency to your pom.xml:
 <dependency>
     <groupId>com.github.pagehelper</groupId>
     <artifactId>pagehelper-spring-boot-starter</artifactId>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
 </dependency>
 ```
 
-当你使用低版本 Spring Boot 时，可以尝试使用下面的版本：
+## v1.1.0 - 2017-02-04
+- 解决可能会注册两次分页插件的问题。
+- 增加 PageHelperProperties 注入，常用属性可以通过 IDE 自动提示
 
-When you use a lower version of Spring Boot, you can try using the following versions : 
-```xml
-<dependency>
-    <groupId>com.github.pagehelper</groupId>
-    <artifactId>pagehelper-spring-boot-starter</artifactId>
-    <version>0.1.0</version>
-</dependency>
-```
+![IDE 自动提示](properties.png)
 
 ## Example
 >https://github.com/abel533/MyBatis-Spring-Boot
