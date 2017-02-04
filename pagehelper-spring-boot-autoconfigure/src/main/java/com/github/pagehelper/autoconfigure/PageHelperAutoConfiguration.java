@@ -37,6 +37,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
 
 import javax.annotation.PostConstruct;
+import java.util.Map;
 import java.util.Properties;
 
 /**
@@ -67,7 +68,12 @@ public class PageHelperAutoConfiguration implements EnvironmentAware {
     public void addPageInterceptor() {
         PageInterceptor interceptor = new PageInterceptor();
         Properties properties = pageHelperProperties.getProperties();
-        properties.putAll(resolver.getSubProperties(""));
+        Map<String, Object> subProperties = resolver.getSubProperties("");
+        for (String key : subProperties.keySet()) {
+            if (!properties.containsKey(key)) {
+                properties.setProperty(key, resolver.getProperty(key));
+            }
+        }
         interceptor.setProperties(properties);
         sqlSessionFactory.getConfiguration().addInterceptor(interceptor);
     }
