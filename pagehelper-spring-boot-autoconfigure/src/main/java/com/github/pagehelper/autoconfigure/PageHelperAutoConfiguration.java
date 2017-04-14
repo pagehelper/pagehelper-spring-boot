@@ -29,7 +29,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.bind.RelaxedPropertyResolver;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.EnvironmentAware;
@@ -46,7 +46,7 @@ import java.util.Properties;
  * @author liuzh
  */
 @Configuration
-@ConditionalOnBean(SqlSessionFactory.class)
+@ConditionalOnClass(SqlSessionFactory.class)
 @EnableConfigurationProperties(PageHelperProperties.class)
 @AutoConfigureAfter(MybatisAutoConfiguration.class)
 public class PageHelperAutoConfiguration implements EnvironmentAware {
