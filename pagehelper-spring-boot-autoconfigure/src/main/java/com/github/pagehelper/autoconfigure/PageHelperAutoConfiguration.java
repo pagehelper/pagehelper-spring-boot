@@ -52,7 +52,7 @@ import java.util.Properties;
 public class PageHelperAutoConfiguration implements EnvironmentAware {
 
     @Autowired
-    private SqlSessionFactory sqlSessionFactory;
+    private List<SqlSessionFactory> sqlSessionFactoryList;
 
     @Autowired
     private PageHelperProperties pageHelperProperties;
@@ -75,7 +75,9 @@ public class PageHelperAutoConfiguration implements EnvironmentAware {
             }
         }
         interceptor.setProperties(properties);
-        sqlSessionFactory.getConfiguration().addInterceptor(interceptor);
+        for (SqlSessionFactory sqlSessionFactory : sqlSessionFactoryList) {
+            sqlSessionFactory.getConfiguration().addInterceptor(interceptor);
+        }
     }
 
 }
