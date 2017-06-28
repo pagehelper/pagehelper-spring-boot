@@ -14,9 +14,15 @@ Add the following dependency to your pom.xml:
 <dependency>
     <groupId>com.github.pagehelper</groupId>
     <artifactId>pagehelper-spring-boot-starter</artifactId>
-    <version>1.1.1</version>
+    <version>1.1.2</version>
 </dependency>
 ```
+
+## v1.1.2 - 2017-06-28 by [drtrang](https://github.com/drtrang)
+
+- 升级 pagehelper 到 5.0.3
+- 升级 springboot 到 1.5.4.RELEASE
+- 将 maven-compiler-plugin 和 maven-source-plugin 从 release profile 中提出来作为全局插件，并且增加继承属性，解决 `PageHelperAutoConfiguration` 类中的 `@Override` 报错问题。
 
 ## v1.1.1 - 2017-04-25
 - 增加多数据源支持 [#pr6](https://github.com/pagehelper/pagehelper-spring-boot/pull/6) by [yangBin666](https://github.com/yangBin666)
