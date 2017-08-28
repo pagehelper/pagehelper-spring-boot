@@ -14,9 +14,13 @@ Add the following dependency to your pom.xml:
 <dependency>
     <groupId>com.github.pagehelper</groupId>
     <artifactId>pagehelper-spring-boot-starter</artifactId>
-    <version>1.1.3</version>
+    <version>1.2.0</version>
 </dependency>
 ```
+## v1.2.0 - 2017-08-28
+
+- 升级 pagehelper 到 5.1.0
+
 ## v1.1.3 - 2017-08-01
 
 - 升级 pagehelper 到 5.0.4
