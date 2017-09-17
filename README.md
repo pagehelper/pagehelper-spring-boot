@@ -17,6 +17,10 @@ Add the following dependency to your pom.xml:
     <version>1.2.0</version>
 </dependency>
 ```
+## v1.2.2 - 2017-09-18
+
+- 升级 pagehelper 到 5.1.2
+```
 ## v1.2.1 - 2017-08-30
 
 - 升级 pagehelper 到 5.1.1
