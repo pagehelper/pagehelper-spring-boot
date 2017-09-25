@@ -30,15 +30,13 @@ import org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
-import org.springframework.boot.bind.RelaxedPropertyResolver;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
-import org.springframework.context.EnvironmentAware;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.env.Environment;
 
 import javax.annotation.PostConstruct;
 import java.util.List;
-import java.util.Map;
 import java.util.Properties;
 
 /**
@@ -50,31 +48,33 @@ import java.util.Properties;
 @ConditionalOnBean(SqlSessionFactory.class)
 @EnableConfigurationProperties(PageHelperProperties.class)
 @AutoConfigureAfter(MybatisAutoConfiguration.class)
-public class PageHelperAutoConfiguration implements EnvironmentAware {
+public class PageHelperAutoConfiguration {
 
     @Autowired
     private List<SqlSessionFactory> sqlSessionFactoryList;
 
     @Autowired
-    private PageHelperProperties pageHelperProperties;
+    private PageHelperProperties properties;
 
-    private RelaxedPropertyResolver resolver;
-
-    @Override
-    public void setEnvironment(Environment environment) {
-        resolver = new RelaxedPropertyResolver(environment, "pagehelper.");
+    /**
+     * 接受分页插件额外的属性
+     *
+     * @return
+     */
+    @Bean
+    @ConfigurationProperties(prefix = PageHelperProperties.PAGEHELPER_PREFIX)
+    public Properties pageHelperProperties() {
+        return new Properties();
     }
 
     @PostConstruct
     public void addPageInterceptor() {
         PageInterceptor interceptor = new PageInterceptor();
-        Properties properties = pageHelperProperties.getProperties();
-        Map<String, Object> subProperties = resolver.getSubProperties("");
-        for (String key : subProperties.keySet()) {
-            if (!properties.containsKey(key)) {
-                properties.setProperty(key, resolver.getProperty(key));
-            }
-        }
+        Properties properties = new Properties();
+        //先把一般方式配置的属性放进去
+        properties.putAll(pageHelperProperties());
+        //在把特殊配置放进去，由于close-conn 利用上面方式时，属性名就是 close-conn 而不是 closeConn，所以需要额外的一步
+        properties.putAll(this.properties.getProperties());
         interceptor.setProperties(properties);
         for (SqlSessionFactory sqlSessionFactory : sqlSessionFactoryList) {
             sqlSessionFactory.getConfiguration().addInterceptor(interceptor);

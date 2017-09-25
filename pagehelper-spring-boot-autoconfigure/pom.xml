@@ -29,7 +29,7 @@
     <parent>
         <groupId>com.github.pagehelper</groupId>
         <artifactId>pagehelper-spring-boot</artifactId>
-        <version>1.2.2</version>
+        <version>1.2.3</version>
     </parent>
     <artifactId>pagehelper-spring-boot-autoconfigure</artifactId>
     <name>pagehelper-spring-boot-autoconfigure</name>
@@ -50,11 +50,6 @@
         <dependency>
             <groupId>com.github.pagehelper</groupId>
             <artifactId>pagehelper</artifactId>
-            <optional>true</optional>
-        </dependency>
-        <dependency>
-            <groupId>org.mybatis</groupId>
-            <artifactId>mybatis-spring</artifactId>
             <optional>true</optional>
         </dependency>
         <dependency>
