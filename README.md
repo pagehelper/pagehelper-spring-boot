@@ -14,9 +14,23 @@ Add the following dependency to your pom.xml:
 <dependency>
     <groupId>com.github.pagehelper</groupId>
     <artifactId>pagehelper-spring-boot-starter</artifactId>
-    <version>1.2.3</version>
+    <version>1.2.4</version>
 </dependency>
 ```
+## v1.2.4 - 2018-04-07
+
+- 升级 PageHelper 到 5.1.3
+- 升级 springboot 到 2.0.1.RELEASE
+- 增加 dialectAlias 参数，允许配置自定义实现的 别名，可以用于根据JDBCURL自动获取对应实现，允许通过此种方式覆盖已有的实现，配置示例如(多个配置用分号`;`隔开)：
+  ```properties
+  pagehelper.dialect-alias=oracle=com.github.pagehelper.dialect.helper.OracleDialect
+  ```
+- 增加 defaultCount 参数，用于控制默认不带 count 查询的方法中，是否执行 count 查询，默认 true 会执行 count 查询，这是一个全局生效的参数，多数据源时也是统一的行为。配置示例如：
+  ```properties
+  pagehelper.default-count=false
+  ```
+
+
 ## v1.2.3 - 2017-09-25
 
 - 修改属性获取方式，兼容 Spring Boot 1.x 和 2.x

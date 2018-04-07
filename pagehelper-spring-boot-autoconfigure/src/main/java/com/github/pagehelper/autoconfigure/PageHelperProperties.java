@@ -131,4 +131,20 @@ public class PageHelperProperties {
     public void setParams(String params) {
         properties.setProperty("params", params);
     }
+
+    public String getDefaultCount() {
+        return properties.getProperty("defaultCount");
+    }
+
+    public void setDefaultCount(String defaultCount) {
+        properties.setProperty("defaultCount", defaultCount);
+    }
+
+    public String getDialectAlias() {
+        return properties.getProperty("dialectAlias");
+    }
+
+    public void setDialectAlias(String dialectAlias) {
+        properties.setProperty("dialectAlias", dialectAlias);
+    }
 }
