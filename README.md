@@ -14,9 +14,15 @@ Add the following dependency to your pom.xml:
 <dependency>
     <groupId>com.github.pagehelper</groupId>
     <artifactId>pagehelper-spring-boot-starter</artifactId>
-    <version>1.2.4</version>
+    <version>1.2.5</version>
 </dependency>
 ```
+
+## v1.2.5 - 2018-04-22
+
+- 升级 PageHelper 到 5.1.4（默认增加对达梦数据库的支持）
+- 升级 MyBatis 到 3.4.6
+
 ## v1.2.4 - 2018-04-07
 
 - 升级 PageHelper 到 5.1.3
