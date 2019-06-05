@@ -29,7 +29,7 @@
     <parent>
         <groupId>com.github.pagehelper</groupId>
         <artifactId>pagehelper-spring-boot</artifactId>
-        <version>1.2.11</version>
+        <version>1.2.12</version>
     </parent>
     <artifactId>pagehelper-spring-boot-autoconfigure</artifactId>
     <name>pagehelper-spring-boot-autoconfigure</name>
