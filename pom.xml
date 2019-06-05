@@ -64,7 +64,7 @@
 
     <properties>
         <mybatis.version>3.5.1</mybatis.version>
-        <pagehelper.version>5.1.9</pagehelper.version>
+        <pagehelper.version>5.1.10</pagehelper.version>
         <mybatis-spring-boot.version>2.0.1</mybatis-spring-boot.version>
         <spring-boot.version>2.1.5.RELEASE</spring-boot.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
