@@ -24,9 +24,9 @@
 
 package com.github.pagehelper.autoconfigure;
 
-import org.springframework.boot.context.properties.ConfigurationProperties;
-
 import java.util.Properties;
+
+import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
  * Configuration properties for PageHelper.
@@ -44,44 +44,44 @@ public class PageHelperProperties {
         return properties;
     }
 
-    public String getOffsetAsPageNum() {
-        return properties.getProperty("offsetAsPageNum");
+	public Boolean getOffsetAsPageNum() {
+		return Boolean.valueOf(properties.getProperty("offsetAsPageNum"));
     }
 
-    public void setOffsetAsPageNum(String offsetAsPageNum) {
-        properties.setProperty("offsetAsPageNum", offsetAsPageNum);
+	public void setOffsetAsPageNum(Boolean offsetAsPageNum) {
+		properties.setProperty("offsetAsPageNum", offsetAsPageNum.toString());
     }
 
-    public String getRowBoundsWithCount() {
-        return properties.getProperty("rowBoundsWithCount");
+	public Boolean getRowBoundsWithCount() {
+		return Boolean.valueOf(properties.getProperty("rowBoundsWithCount"));
     }
 
-    public void setRowBoundsWithCount(String rowBoundsWithCount) {
-        properties.setProperty("rowBoundsWithCount", rowBoundsWithCount);
+	public void setRowBoundsWithCount(Boolean rowBoundsWithCount) {
+		properties.setProperty("rowBoundsWithCount", rowBoundsWithCount.toString());
     }
 
-    public String getPageSizeZero() {
-        return properties.getProperty("pageSizeZero");
+	public Boolean getPageSizeZero() {
+		return Boolean.valueOf(properties.getProperty("pageSizeZero"));
     }
 
-    public void setPageSizeZero(String pageSizeZero) {
-        properties.setProperty("pageSizeZero", pageSizeZero);
+	public void setPageSizeZero(Boolean pageSizeZero) {
+		properties.setProperty("pageSizeZero", pageSizeZero.toString());
     }
 
-    public String getReasonable() {
-        return properties.getProperty("reasonable");
+	public Boolean getReasonable() {
+		return Boolean.valueOf(properties.getProperty("reasonable"));
     }
 
-    public void setReasonable(String reasonable) {
-        properties.setProperty("reasonable", reasonable);
+	public void setReasonable(Boolean reasonable) {
+		properties.setProperty("reasonable", reasonable.toString());
     }
 
-    public String getSupportMethodsArguments() {
-        return properties.getProperty("supportMethodsArguments");
+	public Boolean getSupportMethodsArguments() {
+		return Boolean.valueOf(properties.getProperty("supportMethodsArguments"));
     }
 
-    public void setSupportMethodsArguments(String supportMethodsArguments) {
-        properties.setProperty("supportMethodsArguments", supportMethodsArguments);
+	public void setSupportMethodsArguments(Boolean supportMethodsArguments) {
+		properties.setProperty("supportMethodsArguments", supportMethodsArguments.toString());
     }
 
     public String getDialect() {
@@ -100,28 +100,28 @@ public class PageHelperProperties {
         properties.setProperty("helperDialect", helperDialect);
     }
 
-    public String getAutoRuntimeDialect() {
-        return properties.getProperty("autoRuntimeDialect");
+	public Boolean getAutoRuntimeDialect() {
+		return Boolean.valueOf(properties.getProperty("autoRuntimeDialect"));
     }
 
-    public void setAutoRuntimeDialect(String autoRuntimeDialect) {
-        properties.setProperty("autoRuntimeDialect", autoRuntimeDialect);
+	public void setAutoRuntimeDialect(Boolean autoRuntimeDialect) {
+		properties.setProperty("autoRuntimeDialect", autoRuntimeDialect.toString());
     }
 
-    public String getAutoDialect() {
-        return properties.getProperty("autoDialect");
+	public Boolean getAutoDialect() {
+		return Boolean.valueOf(properties.getProperty("autoDialect"));
     }
 
-    public void setAutoDialect(String autoDialect) {
-        properties.setProperty("autoDialect", autoDialect);
+	public void setAutoDialect(Boolean autoDialect) {
+		properties.setProperty("autoDialect", autoDialect.toString());
     }
 
-    public String getCloseConn() {
-        return properties.getProperty("closeConn");
+	public Boolean getCloseConn() {
+		return Boolean.valueOf(properties.getProperty("closeConn"));
     }
 
-    public void setCloseConn(String closeConn) {
-        properties.setProperty("closeConn", closeConn);
+	public void setCloseConn(Boolean closeConn) {
+		properties.setProperty("closeConn", closeConn.toString());
     }
 
     public String getParams() {
@@ -132,12 +132,12 @@ public class PageHelperProperties {
         properties.setProperty("params", params);
     }
 
-    public String getDefaultCount() {
-        return properties.getProperty("defaultCount");
+	public Boolean getDefaultCount() {
+		return Boolean.valueOf(properties.getProperty("defaultCount"));
     }
 
-    public void setDefaultCount(String defaultCount) {
-        properties.setProperty("defaultCount", defaultCount);
+	public void setDefaultCount(Boolean defaultCount) {
+		properties.setProperty("defaultCount", defaultCount.toString());
     }
 
     public String getDialectAlias() {
