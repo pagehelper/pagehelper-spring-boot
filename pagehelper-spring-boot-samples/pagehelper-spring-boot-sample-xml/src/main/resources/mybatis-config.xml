@@ -31,6 +31,6 @@
         <package name="tk.mybatis.pagehelper.domain"/>
     </typeAliases>
     <mappers>
-        <mapper resource="tk/mybatis/pagehelper/mapper/CountryMapper.xml"/>
+        <mapper resource="tk/mybatis/pagehelper/mapper/UserMapper.xml"/>
     </mappers>
 </configuration>

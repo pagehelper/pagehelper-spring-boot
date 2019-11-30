@@ -22,18 +22,38 @@
  * THE SOFTWARE.
  */
 
-package tk.mybatis.pagehelper.mapper;
+package tk.mybatis.pagehelper.domain;
 
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
-import tk.mybatis.pagehelper.domain.Country;
+import java.io.Serializable;
 
-import java.util.List;
+public class User implements Serializable {
+    private static final long serialVersionUID = 6569081236403751407L;
 
-@Mapper
-public interface CountryMapper {
+    private int    id;
+    private String name;
+    private String py;
 
-    @Select("select * from country")
-    List<Country> findAll();
+    public int getId() {
+        return id;
+    }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getPy() {
+        return py;
+    }
+
+    public void setPy(String py) {
+        this.py = py;
+    }
 }

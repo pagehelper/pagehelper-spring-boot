@@ -21,44 +21,19 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+package tk.mybatis.pagehelper.mapper;
 
-package tk.mybatis.pagehelper.domain;
+import org.apache.ibatis.annotations.Mapper;
+import tk.mybatis.pagehelper.domain.User;
 
-import java.io.Serializable;
+import java.util.List;
 
 /**
- * Description: Country
- * Author: liuzh
- * Update: liuzh(2014-06-06 13:38)
+ * @author Eduardo Macarron
  */
-public class Country implements Serializable {
-    private static final long serialVersionUID = 6569081236403751407L;
+@Mapper
+public interface UserMapper {
 
-    private int    id;
-    private String countryname;
-    private String countrycode;
+    List<User> selectAll();
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getCountryname() {
-        return countryname;
-    }
-
-    public void setCountryname(String countryname) {
-        this.countryname = countryname;
-    }
-
-    public String getCountrycode() {
-        return countrycode;
-    }
-
-    public void setCountrycode(String countrycode) {
-        this.countrycode = countrycode;
-    }
 }

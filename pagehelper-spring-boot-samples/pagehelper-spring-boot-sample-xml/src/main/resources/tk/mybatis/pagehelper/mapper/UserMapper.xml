@@ -26,8 +26,8 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="tk.mybatis.pagehelper.mapper.CountryMapper">
-    <select id="selectAll" resultType="Country">
-        select * from country
+<mapper namespace="tk.mybatis.pagehelper.mapper.UserMapper">
+    <select id="selectAll" resultType="User">
+        select * from user
     </select>
 </mapper>

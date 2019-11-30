@@ -31,8 +31,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import tk.mybatis.pagehelper.domain.Country;
-import tk.mybatis.pagehelper.mapper.CountryMapper;
+import tk.mybatis.pagehelper.domain.User;
+import tk.mybatis.pagehelper.mapper.UserMapper;
 
 import java.util.List;
 
@@ -41,7 +41,7 @@ import java.util.List;
 public class SampleMapperApplication implements CommandLineRunner {
 
     @Autowired
-    private CountryMapper countryMapper;
+    private UserMapper userMapper;
 
     public static void main(String[] args) {
         SpringApplication.run(SampleMapperApplication.class, args);
@@ -50,10 +50,10 @@ public class SampleMapperApplication implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         PageHelper.startPage(1, 20);
-        List<Country> countries = countryMapper.findAll();
-        System.out.println("Total: " + ((Page) countries).getTotal());
-        for (Country country : countries) {
-            System.out.println("Country Name: " + country.getCountryname());
+        List<User> users = userMapper.findAll();
+        System.out.println("Total: " + ((Page) users).getTotal());
+        for (User user : users) {
+            System.out.println("Name: " + user.getName());
         }
     }
 

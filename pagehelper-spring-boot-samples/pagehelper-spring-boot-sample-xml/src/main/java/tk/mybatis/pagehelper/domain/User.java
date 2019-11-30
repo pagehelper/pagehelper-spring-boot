@@ -21,19 +21,39 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package tk.mybatis.pagehelper.mapper;
 
-import org.apache.ibatis.annotations.Mapper;
-import tk.mybatis.pagehelper.domain.Country;
+package tk.mybatis.pagehelper.domain;
 
-import java.util.List;
+import java.io.Serializable;
 
-/**
- * @author Eduardo Macarron
- */
-@Mapper
-public interface CountryMapper {
+public class User implements Serializable {
+    private static final long serialVersionUID = 6569081236403751407L;
 
-    List<Country> selectAll();
+    private int    id;
+    private String name;
+    private String py;
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getPy() {
+        return py;
+    }
+
+    public void setPy(String py) {
+        this.py = py;
+    }
 }
