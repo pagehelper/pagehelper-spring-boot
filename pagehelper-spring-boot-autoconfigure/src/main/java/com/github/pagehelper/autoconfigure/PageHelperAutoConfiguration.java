@@ -34,6 +34,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Lazy;
 
 import javax.annotation.PostConstruct;
 import java.util.List;
@@ -48,6 +49,7 @@ import java.util.Properties;
 @ConditionalOnBean(SqlSessionFactory.class)
 @EnableConfigurationProperties(PageHelperProperties.class)
 @AutoConfigureAfter(MybatisAutoConfiguration.class)
+@Lazy(false)
 public class PageHelperAutoConfiguration {
 
     @Autowired
