@@ -25,6 +25,7 @@
 package com.github.pagehelper.autoconfigure;
 
 import com.github.pagehelper.PageInterceptor;
+import org.apache.ibatis.plugin.Interceptor;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -79,7 +80,26 @@ public class PageHelperAutoConfiguration {
         properties.putAll(this.properties.getProperties());
         interceptor.setProperties(properties);
         for (SqlSessionFactory sqlSessionFactory : sqlSessionFactoryList) {
-            sqlSessionFactory.getConfiguration().addInterceptor(interceptor);
+            org.apache.ibatis.session.Configuration configuration = sqlSessionFactory.getConfiguration();
+            if (!containsInterceptor(configuration, interceptor)) {
+                configuration.addInterceptor(interceptor);
+            }
+        }
+    }
+
+    /**
+     * 是否已经存在相同的拦截器
+     *
+     * @param configuration
+     * @param interceptor
+     * @return
+     */
+    private boolean containsInterceptor(org.apache.ibatis.session.Configuration configuration, Interceptor interceptor) {
+        try {
+            // getInterceptors since 3.2.2
+            return configuration.getInterceptors().contains(interceptor);
+        } catch (Exception e) {
+            return false;
         }
     }
 
