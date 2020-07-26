@@ -14,9 +14,18 @@ Add the following dependency to your pom.xml:
 <dependency>
     <groupId>com.github.pagehelper</groupId>
     <artifactId>pagehelper-spring-boot-starter</artifactId>
-    <version>1.2.13</version>
+    <version>1.3.0</version>
 </dependency>
 ```
+
+## v1.3.0 - 2020-07-26
+
+- 升级 PageHelper 到 5.2.0，包含大量改动，详细内容参考：[PageHelper 更新日志](https://github.com/pagehelper/Mybatis-PageHelper/blob/master/wikis/zh/Changelog.md)
+- 升级 MyBatis 到 3.5.5
+- 升级 MyBatis Starter 到 2.1.3
+- 升级 springboot 到 2.3.1.RELEASE
+- `PageHelperAutoConfiguration` 增加 `@Lazy(false)` 注解，当配置延迟加载时，避免分页插件出错
+- 添加分页插件时判断是否已经配置过同一个实例（不同的配置是不同的实例）
 
 ## v1.2.13 - 2019-11-26
 
