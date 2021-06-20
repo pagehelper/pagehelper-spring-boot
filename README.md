@@ -14,9 +14,17 @@ Add the following dependency to your pom.xml:
 <dependency>
     <groupId>com.github.pagehelper</groupId>
     <artifactId>pagehelper-spring-boot-starter</artifactId>
-    <version>1.3.0</version>
+    <version>1.3.1</version>
 </dependency>
 ```
+
+## v1.3.1 - 2021-06-20
+
+- 升级 PageHelper 到 5.2.1
+- 升级 MyBatis 到 3.5.7
+- 升级 MyBatis Starter 到 2.2.0
+- 升级 springboot 到 2.5.1
+- `PageHelperAutoConfiguration` 使用 `InitializingBean` 接口代替 `@PostConstruct` 注解
 
 ## v1.3.0 - 2020-07-26
 

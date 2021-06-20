@@ -28,6 +28,7 @@ import com.github.pagehelper.PageInterceptor;
 import org.apache.ibatis.plugin.Interceptor;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration;
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
@@ -37,7 +38,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Lazy;
 
-import javax.annotation.PostConstruct;
 import java.util.List;
 import java.util.Properties;
 
@@ -51,7 +51,7 @@ import java.util.Properties;
 @EnableConfigurationProperties(PageHelperProperties.class)
 @AutoConfigureAfter(MybatisAutoConfiguration.class)
 @Lazy(false)
-public class PageHelperAutoConfiguration {
+public class PageHelperAutoConfiguration implements InitializingBean {
 
     @Autowired
     private List<SqlSessionFactory> sqlSessionFactoryList;
@@ -70,8 +70,8 @@ public class PageHelperAutoConfiguration {
         return new Properties();
     }
 
-    @PostConstruct
-    public void addPageInterceptor() {
+    @Override
+    public void afterPropertiesSet() throws Exception {
         PageInterceptor interceptor = new PageInterceptor();
         Properties properties = new Properties();
         //先把一般方式配置的属性放进去
