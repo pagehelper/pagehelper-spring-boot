@@ -24,27 +24,26 @@
 
 package com.github.pagehelper.autoconfigure;
 
-import com.github.pagehelper.PageInterceptor;
+import java.util.List;
+import java.util.Properties;
+
 import org.apache.ibatis.plugin.Interceptor;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration;
 import org.springframework.beans.factory.InitializingBean;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Lazy;
 
-import java.util.List;
-import java.util.Properties;
+import com.github.pagehelper.PageInterceptor;
 
 /**
- * 自定注入分页插件
+ * 自定义注入分页插件
  *
  * @author liuzh
+ * @author liym
  */
 @Configuration
 @ConditionalOnBean(SqlSessionFactory.class)
@@ -53,33 +52,20 @@ import java.util.Properties;
 @Lazy(false)
 public class PageHelperAutoConfiguration implements InitializingBean {
 
-    @Autowired
-    private List<SqlSessionFactory> sqlSessionFactoryList;
+    private final Properties properties;
+    private final List<SqlSessionFactory> sessionFactories;
 
-    @Autowired
-    private PageHelperProperties properties;
-
-    /**
-     * 接受分页插件额外的属性
-     *
-     * @return
-     */
-    @Bean
-    @ConfigurationProperties(prefix = PageHelperProperties.PAGEHELPER_PREFIX)
-    public Properties pageHelperProperties() {
-        return new Properties();
+    public PageHelperAutoConfiguration(PageHelperProperties properties, List<SqlSessionFactory> sqlSessionFactoryList) {
+        this.properties = new Properties();
+        this.properties.putAll(properties.getProperties());
+        this.sessionFactories = sqlSessionFactoryList;
     }
 
     @Override
-    public void afterPropertiesSet() throws Exception {
+    public void afterPropertiesSet() {
         PageInterceptor interceptor = new PageInterceptor();
-        Properties properties = new Properties();
-        //先把一般方式配置的属性放进去
-        properties.putAll(pageHelperProperties());
-        //在把特殊配置放进去，由于close-conn 利用上面方式时，属性名就是 close-conn 而不是 closeConn，所以需要额外的一步
-        properties.putAll(this.properties.getProperties());
-        interceptor.setProperties(properties);
-        for (SqlSessionFactory sqlSessionFactory : sqlSessionFactoryList) {
+        interceptor.setProperties(this.properties);
+        for (SqlSessionFactory sqlSessionFactory : this.sessionFactories) {
             org.apache.ibatis.session.Configuration configuration = sqlSessionFactory.getConfiguration();
             if (!containsInterceptor(configuration, interceptor)) {
                 configuration.addInterceptor(interceptor);
@@ -89,10 +75,6 @@ public class PageHelperAutoConfiguration implements InitializingBean {
 
     /**
      * 是否已经存在相同的拦截器
-     *
-     * @param configuration
-     * @param interceptor
-     * @return
      */
     private boolean containsInterceptor(org.apache.ibatis.session.Configuration configuration, Interceptor interceptor) {
         try {
