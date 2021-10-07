@@ -14,9 +14,16 @@ Add the following dependency to your pom.xml:
 <dependency>
     <groupId>com.github.pagehelper</groupId>
     <artifactId>pagehelper-spring-boot-starter</artifactId>
-    <version>1.3.1</version>
+    <version>1.4.0</version>
 </dependency>
 ```
+
+## v1.4.0 - 2021-10-07
+
+- 升级 PageHelper 到 5.3.0
+- 升级 springboot 到 2.5.5
+- 增加 `autoDialectClass` 参数，详情看 PageHelper 更新日志
+
 
 ## v1.3.1 - 2021-06-20
 

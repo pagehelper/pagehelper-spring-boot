@@ -147,4 +147,12 @@ public class PageHelperProperties {
     public void setDialectAlias(String dialectAlias) {
         properties.setProperty("dialectAlias", dialectAlias);
     }
+
+    public String getAutoDialectClass() {
+        return properties.getProperty("autoDialectClass");
+    }
+
+    public void setAutoDialectClass(String autoDialectClass) {
+        properties.setProperty("autoDialectClass", autoDialectClass);
+    }
 }
