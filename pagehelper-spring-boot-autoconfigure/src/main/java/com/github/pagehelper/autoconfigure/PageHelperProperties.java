@@ -24,9 +24,9 @@
 
 package com.github.pagehelper.autoconfigure;
 
-import java.util.Properties;
-
 import org.springframework.boot.context.properties.ConfigurationProperties;
+
+import java.util.Properties;
 
 /**
  * Configuration properties for PageHelper.
@@ -34,125 +34,119 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  * @author liuzh
  */
 @ConfigurationProperties(prefix = PageHelperProperties.PAGEHELPER_PREFIX)
-public class PageHelperProperties {
+public class PageHelperProperties extends Properties {
 
     public static final String PAGEHELPER_PREFIX = "pagehelper";
 
-    private Properties properties = new Properties();
-
-    public Properties getProperties() {
-        return properties;
+    public Boolean getOffsetAsPageNum() {
+        return Boolean.valueOf(getProperty("offsetAsPageNum"));
     }
 
-	public Boolean getOffsetAsPageNum() {
-		return Boolean.valueOf(properties.getProperty("offsetAsPageNum"));
+    public void setOffsetAsPageNum(Boolean offsetAsPageNum) {
+        setProperty("offsetAsPageNum", offsetAsPageNum.toString());
     }
 
-	public void setOffsetAsPageNum(Boolean offsetAsPageNum) {
-		properties.setProperty("offsetAsPageNum", offsetAsPageNum.toString());
+    public Boolean getRowBoundsWithCount() {
+        return Boolean.valueOf(getProperty("rowBoundsWithCount"));
     }
 
-	public Boolean getRowBoundsWithCount() {
-		return Boolean.valueOf(properties.getProperty("rowBoundsWithCount"));
+    public void setRowBoundsWithCount(Boolean rowBoundsWithCount) {
+        setProperty("rowBoundsWithCount", rowBoundsWithCount.toString());
     }
 
-	public void setRowBoundsWithCount(Boolean rowBoundsWithCount) {
-		properties.setProperty("rowBoundsWithCount", rowBoundsWithCount.toString());
+    public Boolean getPageSizeZero() {
+        return Boolean.valueOf(getProperty("pageSizeZero"));
     }
 
-	public Boolean getPageSizeZero() {
-		return Boolean.valueOf(properties.getProperty("pageSizeZero"));
+    public void setPageSizeZero(Boolean pageSizeZero) {
+        setProperty("pageSizeZero", pageSizeZero.toString());
     }
 
-	public void setPageSizeZero(Boolean pageSizeZero) {
-		properties.setProperty("pageSizeZero", pageSizeZero.toString());
+    public Boolean getReasonable() {
+        return Boolean.valueOf(getProperty("reasonable"));
     }
 
-	public Boolean getReasonable() {
-		return Boolean.valueOf(properties.getProperty("reasonable"));
+    public void setReasonable(Boolean reasonable) {
+        setProperty("reasonable", reasonable.toString());
     }
 
-	public void setReasonable(Boolean reasonable) {
-		properties.setProperty("reasonable", reasonable.toString());
+    public Boolean getSupportMethodsArguments() {
+        return Boolean.valueOf(getProperty("supportMethodsArguments"));
     }
 
-	public Boolean getSupportMethodsArguments() {
-		return Boolean.valueOf(properties.getProperty("supportMethodsArguments"));
-    }
-
-	public void setSupportMethodsArguments(Boolean supportMethodsArguments) {
-		properties.setProperty("supportMethodsArguments", supportMethodsArguments.toString());
+    public void setSupportMethodsArguments(Boolean supportMethodsArguments) {
+        setProperty("supportMethodsArguments", supportMethodsArguments.toString());
     }
 
     public String getDialect() {
-        return properties.getProperty("dialect");
+        return getProperty("dialect");
     }
 
     public void setDialect(String dialect) {
-        properties.setProperty("dialect", dialect);
+        setProperty("dialect", dialect);
     }
 
     public String getHelperDialect() {
-        return properties.getProperty("helperDialect");
+        return getProperty("helperDialect");
     }
 
     public void setHelperDialect(String helperDialect) {
-        properties.setProperty("helperDialect", helperDialect);
+        setProperty("helperDialect", helperDialect);
     }
 
-	public Boolean getAutoRuntimeDialect() {
-		return Boolean.valueOf(properties.getProperty("autoRuntimeDialect"));
+    public Boolean getAutoRuntimeDialect() {
+        return Boolean.valueOf(getProperty("autoRuntimeDialect"));
     }
 
-	public void setAutoRuntimeDialect(Boolean autoRuntimeDialect) {
-		properties.setProperty("autoRuntimeDialect", autoRuntimeDialect.toString());
+    public void setAutoRuntimeDialect(Boolean autoRuntimeDialect) {
+        setProperty("autoRuntimeDialect", autoRuntimeDialect.toString());
     }
 
-	public Boolean getAutoDialect() {
-		return Boolean.valueOf(properties.getProperty("autoDialect"));
+    public Boolean getAutoDialect() {
+        return Boolean.valueOf(getProperty("autoDialect"));
     }
 
-	public void setAutoDialect(Boolean autoDialect) {
-		properties.setProperty("autoDialect", autoDialect.toString());
+    public void setAutoDialect(Boolean autoDialect) {
+        setProperty("autoDialect", autoDialect.toString());
     }
 
-	public Boolean getCloseConn() {
-		return Boolean.valueOf(properties.getProperty("closeConn"));
+    public Boolean getCloseConn() {
+        return Boolean.valueOf(getProperty("closeConn"));
     }
 
-	public void setCloseConn(Boolean closeConn) {
-		properties.setProperty("closeConn", closeConn.toString());
+    public void setCloseConn(Boolean closeConn) {
+        setProperty("closeConn", closeConn.toString());
     }
 
     public String getParams() {
-        return properties.getProperty("params");
+        return getProperty("params");
     }
 
     public void setParams(String params) {
-        properties.setProperty("params", params);
+        setProperty("params", params);
     }
 
-	public Boolean getDefaultCount() {
-		return Boolean.valueOf(properties.getProperty("defaultCount"));
+    public Boolean getDefaultCount() {
+        return Boolean.valueOf(getProperty("defaultCount"));
     }
 
-	public void setDefaultCount(Boolean defaultCount) {
-		properties.setProperty("defaultCount", defaultCount.toString());
+    public void setDefaultCount(Boolean defaultCount) {
+        setProperty("defaultCount", defaultCount.toString());
     }
 
     public String getDialectAlias() {
-        return properties.getProperty("dialectAlias");
+        return getProperty("dialectAlias");
     }
 
     public void setDialectAlias(String dialectAlias) {
-        properties.setProperty("dialectAlias", dialectAlias);
+        setProperty("dialectAlias", dialectAlias);
     }
 
     public String getAutoDialectClass() {
-        return properties.getProperty("autoDialectClass");
+        return getProperty("autoDialectClass");
     }
 
     public void setAutoDialectClass(String autoDialectClass) {
-        properties.setProperty("autoDialectClass", autoDialectClass);
+        setProperty("autoDialectClass", autoDialectClass);
     }
 }
