@@ -29,7 +29,7 @@
 
     <groupId>com.github.pagehelper</groupId>
     <artifactId>pagehelper-spring-boot</artifactId>
-    <version>1.4.0</version>
+    <version>1.4.1</version>
     <packaging>pom</packaging>
 
     <name>pagehelper-spring-boot</name>
@@ -71,7 +71,7 @@
         <mybatis.version>3.5.7</mybatis.version>
         <pagehelper.version>5.3.0</pagehelper.version>
         <mybatis-spring-boot.version>2.2.0</mybatis-spring-boot.version>
-        <spring-boot.version>2.5.5</spring-boot.version>
+        <spring-boot.version>2.6.0</spring-boot.version>
     </properties>
 
     <dependencyManagement>
