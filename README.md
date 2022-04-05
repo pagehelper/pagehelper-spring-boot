@@ -9,14 +9,22 @@ Support PageHelper 5.x
 ## How to use
 在 pom.xml 中添加如下依赖：
 
-Add the following dependency to your pom.xml: 
+Add the following dependency to your pom.xml:
+
 ```xml
+
 <dependency>
-    <groupId>com.github.pagehelper</groupId>
-    <artifactId>pagehelper-spring-boot-starter</artifactId>
-    <version>1.4.1</version>
+  <groupId>com.github.pagehelper</groupId>
+  <artifactId>pagehelper-spring-boot-starter</artifactId>
+  <version>1.4.2</version>
 </dependency>
 ```
+
+## v1.4.2 - 2022-04-06
+
+- 升级 MyBatis 到 3.5.9
+- 升级 MyBatis Starter 到 2.2.2
+- 升级 springboot 到 2.6.6
 
 ## v1.4.1 - 2021-11-24
 

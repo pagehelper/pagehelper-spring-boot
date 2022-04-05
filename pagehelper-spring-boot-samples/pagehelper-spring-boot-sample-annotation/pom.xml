@@ -28,7 +28,7 @@
     <parent>
         <groupId>com.github.pagehelper</groupId>
         <artifactId>pagehelper-spring-boot-samples</artifactId>
-        <version>1.4.1</version>
+        <version>1.4.2</version>
     </parent>
     <artifactId>pagehelper-spring-boot-sample-annotation</artifactId>
     <packaging>jar</packaging>

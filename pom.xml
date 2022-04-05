@@ -29,7 +29,7 @@
 
     <groupId>com.github.pagehelper</groupId>
     <artifactId>pagehelper-spring-boot</artifactId>
-    <version>1.4.1</version>
+    <version>1.4.2</version>
     <packaging>pom</packaging>
 
     <name>pagehelper-spring-boot</name>
@@ -68,10 +68,10 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <mybatis.version>3.5.7</mybatis.version>
+        <mybatis.version>3.5.9</mybatis.version>
         <pagehelper.version>5.3.0</pagehelper.version>
-        <mybatis-spring-boot.version>2.2.0</mybatis-spring-boot.version>
-        <spring-boot.version>2.6.0</spring-boot.version>
+        <mybatis-spring-boot.version>2.2.2</mybatis-spring-boot.version>
+        <spring-boot.version>2.6.6</spring-boot.version>
     </properties>
 
     <dependencyManagement>
@@ -154,16 +154,32 @@
                                 </goals>
                             </execution>
                         </executions>
+                        <configuration>
+                            <gpgArguments>
+                                <argument>--pinentry-mode</argument>
+                                <argument>loopback</argument>
+                            </gpgArguments>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.sonatype.plugins</groupId>
+                        <artifactId>nexus-staging-maven-plugin</artifactId>
+                        <extensions>true</extensions>
+                        <configuration>
+                            <serverId>ossrh</serverId>
+                            <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                            <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                        </configuration>
                     </plugin>
                 </plugins>
             </build>
             <distributionManagement>
                 <snapshotRepository>
-                    <id>oss</id>
+                    <id>ossrh</id>
                     <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
                 </snapshotRepository>
                 <repository>
-                    <id>oss</id>
+                    <id>ossrh</id>
                     <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
                 </repository>
             </distributionManagement>
