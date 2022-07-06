@@ -34,12 +34,12 @@
 
     <name>pagehelper-spring-boot</name>
     <description>Spring Boot Support for PageHelper</description>
-    <url>https://github.com/pagehelper/pagehelper-boot-starter/</url>
+    <url>https://github.com/pagehelper/pagehelper-spring-boot/</url>
 
     <licenses>
         <license>
             <name>The MIT License (MIT)</name>
-            <url>https://github.com/pagehelper/pagehelper-boot-starter/blob/master/LICENSE</url>
+            <url>https://github.com/pagehelper/pagehelper-spring-boot/blob/master/LICENSE</url>
         </license>
     </licenses>
 
@@ -51,9 +51,9 @@
     </developers>
 
     <scm>
-        <connection>scm:git:git@github.com:pagehelper/pagehelper-boot-starter.git</connection>
-        <developerConnection>scm:git:git@github.com:pagehelper/pagehelper-boot-starter.git</developerConnection>
-        <url>git@github.com:pagehelper/pagehelper-boot-starter.git</url>
+        <connection>scm:git:git@github.com:pagehelper/pagehelper-spring-boot.git</connection>
+        <developerConnection>scm:git:git@github.com:pagehelper/pagehelper-spring-boot.git</developerConnection>
+        <url>git@github.com:pagehelper/pagehelper-spring-boot.git</url>
     </scm>
 
     <modules>
