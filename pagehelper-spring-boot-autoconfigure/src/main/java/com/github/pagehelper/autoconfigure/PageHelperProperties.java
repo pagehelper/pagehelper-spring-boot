@@ -24,7 +24,7 @@
 
 package com.github.pagehelper.autoconfigure;
 
-import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.stereotype.Component;
 
 import java.util.Properties;
 
@@ -33,10 +33,8 @@ import java.util.Properties;
  *
  * @author liuzh
  */
-@ConfigurationProperties(prefix = PageHelperProperties.PAGEHELPER_PREFIX)
+@Component
 public class PageHelperProperties extends Properties {
-
-    public static final String PAGEHELPER_PREFIX = "pagehelper";
 
     public Boolean getOffsetAsPageNum() {
         return Boolean.valueOf(getProperty("offsetAsPageNum"));
