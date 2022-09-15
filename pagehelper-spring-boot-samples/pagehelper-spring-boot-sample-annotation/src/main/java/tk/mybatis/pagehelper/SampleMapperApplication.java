@@ -26,6 +26,7 @@ package tk.mybatis.pagehelper;
 
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageRowBounds;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -52,6 +53,13 @@ public class SampleMapperApplication implements CommandLineRunner {
         PageHelper.startPage(1, 20);
         List<User> users = userMapper.findAll();
         System.out.println("Total: " + ((Page) users).getTotal());
+        for (User user : users) {
+            System.out.println("Name: " + user.getName());
+        }
+
+        PageRowBounds rowBounds = new PageRowBounds(3, 5);
+        users = userMapper.findAll(rowBounds);
+        System.out.println("Total: " + rowBounds.getTotal());
         for (User user : users) {
             System.out.println("Name: " + user.getName());
         }

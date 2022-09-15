@@ -26,6 +26,7 @@ package tk.mybatis.pagehelper.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.session.RowBounds;
 import tk.mybatis.pagehelper.domain.User;
 
 import java.util.List;
@@ -33,7 +34,9 @@ import java.util.List;
 @Mapper
 public interface UserMapper {
 
-    @Select("select * from user")
+    @Select("select * from sys_user")
     List<User> findAll();
+
+    List<User> findAll(RowBounds rowBounds);
 
 }
