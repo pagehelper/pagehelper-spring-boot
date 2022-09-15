@@ -33,7 +33,6 @@ import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.Lazy;
 
 import java.util.List;
@@ -45,9 +44,9 @@ import java.util.List;
  */
 @Configuration
 @ConditionalOnBean(SqlSessionFactory.class)
-@EnableConfigurationProperties(PageHelperPropertiesProcessKebabCase.class)
+@EnableConfigurationProperties({PageHelperProperties.class, PageHelperStandardProperties.class})
 @AutoConfigureAfter(MybatisAutoConfiguration.class)
-@Import(PageHelperProperties.class)
+//@Import(PageHelperProperties.class)
 @Lazy(false)
 public class PageHelperAutoConfiguration implements InitializingBean {
 
@@ -55,9 +54,9 @@ public class PageHelperAutoConfiguration implements InitializingBean {
 
     private final PageHelperProperties properties;
 
-    public PageHelperAutoConfiguration(List<SqlSessionFactory> sqlSessionFactoryList, PageHelperProperties properties, PageHelperPropertiesProcessKebabCase propertiesKC) {
+    public PageHelperAutoConfiguration(List<SqlSessionFactory> sqlSessionFactoryList, PageHelperStandardProperties standardProperties) {
         this.sqlSessionFactoryList = sqlSessionFactoryList;
-        this.properties = properties;
+        this.properties = standardProperties.getProperties();
     }
 
     @Override

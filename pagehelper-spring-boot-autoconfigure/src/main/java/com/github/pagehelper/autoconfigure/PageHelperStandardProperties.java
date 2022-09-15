@@ -19,11 +19,8 @@ import java.util.Optional;
  *
  * @author showen
  */
-@ConfigurationProperties(prefix = PageHelperPropertiesProcessKebabCase.PAGEHELPER_PREFIX)
-public class PageHelperPropertiesProcessKebabCase {
-
-    public static final String PAGEHELPER_PREFIX = "pagehelper";
-
+@ConfigurationProperties(prefix = PageHelperProperties.PAGEHELPER_PREFIX)
+public class PageHelperStandardProperties {
     private final PageHelperProperties properties;
     private Boolean offsetAsPageNum;
     private Boolean rowBoundsWithCount;
@@ -41,8 +38,12 @@ public class PageHelperPropertiesProcessKebabCase {
     private String autoDialectClass;
 
     @Autowired
-    public PageHelperPropertiesProcessKebabCase(PageHelperProperties properties) {
+    public PageHelperStandardProperties(PageHelperProperties properties) {
         this.properties = properties;
+    }
+
+    public PageHelperProperties getProperties() {
+        return properties;
     }
 
     public Boolean getOffsetAsPageNum() {
