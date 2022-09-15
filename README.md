@@ -16,9 +16,16 @@ Add the following dependency to your pom.xml:
 <dependency>
   <groupId>com.github.pagehelper</groupId>
   <artifactId>pagehelper-spring-boot-starter</artifactId>
-  <version>1.4.3</version>
+  <version>1.4.4</version>
 </dependency>
 ```
+
+## v1.4.4 - 2022-09-16
+
+- 修复配置文件中kebab-case风格的配置项失效的问题 pr#138, by ShoWen
+- 兼容性支持，demo配置修改
+- 升级 springboot 到 2.7.3
+-
 
 ## v1.4.3 - 2022-06-18
 
