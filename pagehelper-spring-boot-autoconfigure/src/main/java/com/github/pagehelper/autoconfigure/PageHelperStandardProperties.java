@@ -36,6 +36,14 @@ public class PageHelperStandardProperties {
     private Boolean defaultCount;
     private String dialectAlias;
     private String autoDialectClass;
+    private Boolean useSqlserver2012;
+    private String countColumn;
+    private String replaceSql;
+    private String sqlCacheClass;
+    private String boundSqlInterceptors;
+    private Boolean keepOrderBy;
+    private Boolean keepSubSelectOrderBy;
+    private String sqlParser;
 
     @Autowired
     public PageHelperStandardProperties(PageHelperProperties properties) {
@@ -170,5 +178,77 @@ public class PageHelperStandardProperties {
     public void setAutoDialectClass(String autoDialectClass) {
         this.autoDialectClass = autoDialectClass;
         Optional.ofNullable(autoDialectClass).ifPresent(properties::setAutoDialectClass);
+    }
+
+    public Boolean getUseSqlserver2012() {
+        return useSqlserver2012;
+    }
+
+    public void setUseSqlserver2012(Boolean useSqlserver2012) {
+        this.useSqlserver2012 = useSqlserver2012;
+        Optional.ofNullable(useSqlserver2012).ifPresent(v -> properties.setProperty("useSqlserver2012", v.toString()));
+    }
+
+    public String getCountColumn() {
+        return countColumn;
+    }
+
+    public void setCountColumn(String countColumn) {
+        this.countColumn = countColumn;
+        Optional.ofNullable(countColumn).ifPresent(v -> properties.setProperty("countColumn", v));
+    }
+
+    public String getReplaceSql() {
+        return replaceSql;
+    }
+
+    public void setReplaceSql(String replaceSql) {
+        this.replaceSql = replaceSql;
+        Optional.ofNullable(replaceSql).ifPresent(v -> properties.setProperty("replaceSql", v));
+    }
+
+    public String getSqlCacheClass() {
+        return sqlCacheClass;
+    }
+
+    public void setSqlCacheClass(String sqlCacheClass) {
+        this.sqlCacheClass = sqlCacheClass;
+        Optional.ofNullable(sqlCacheClass).ifPresent(v -> properties.setProperty("sqlCacheClass", v));
+    }
+
+    public String getBoundSqlInterceptors() {
+        return boundSqlInterceptors;
+    }
+
+    public void setBoundSqlInterceptors(String boundSqlInterceptors) {
+        this.boundSqlInterceptors = boundSqlInterceptors;
+        Optional.ofNullable(boundSqlInterceptors).ifPresent(v -> properties.setProperty("boundSqlInterceptors", v));
+    }
+
+    public Boolean getKeepOrderBy() {
+        return keepOrderBy;
+    }
+
+    public void setKeepOrderBy(Boolean keepOrderBy) {
+        this.keepOrderBy = keepOrderBy;
+        Optional.ofNullable(keepOrderBy).ifPresent(v -> properties.setProperty("keepOrderBy", v.toString()));
+    }
+
+    public Boolean getKeepSubSelectOrderBy() {
+        return keepSubSelectOrderBy;
+    }
+
+    public void setKeepSubSelectOrderBy(Boolean keepSubSelectOrderBy) {
+        this.keepSubSelectOrderBy = keepSubSelectOrderBy;
+        Optional.ofNullable(keepSubSelectOrderBy).ifPresent(v -> properties.setProperty("keepSubSelectOrderBy", v.toString()));
+    }
+
+    public String getSqlParser() {
+        return sqlParser;
+    }
+
+    public void setSqlParser(String sqlParser) {
+        this.sqlParser = sqlParser;
+        Optional.ofNullable(sqlParser).ifPresent(v -> properties.setProperty("sqlParser", v));
     }
 }
