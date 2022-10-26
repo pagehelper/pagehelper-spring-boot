@@ -81,8 +81,7 @@ public class PageHelperAutoConfiguration implements InitializingBean {
     private boolean containsInterceptor(org.apache.ibatis.session.Configuration configuration, Interceptor interceptor) {
         try {
             // getInterceptors since 3.2.2
-            String interceptorClassName = interceptor.getClass().getName();
-            return configuration.getInterceptors().stream().anyMatch(config -> config.getClass().getName().equals(interceptorClassName));
+            return configuration.getInterceptors().stream().anyMatch(config->interceptor.getClass().isAssignableFrom(config.getClass()));
         } catch (Exception e) {
             return false;
         }
