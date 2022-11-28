@@ -16,9 +16,14 @@ Add the following dependency to your pom.xml:
 <dependency>
   <groupId>com.github.pagehelper</groupId>
   <artifactId>pagehelper-spring-boot-starter</artifactId>
-  <version>1.4.5</version>
+  <version>1.4.6</version>
 </dependency>
 ```
+
+## v1.4.6 - 2022-11-28
+
+- 兼容 Spring Boot 3.0 by [pky920216344](https://github.com/pky920216344)
+- 功能完善：存在PageInterceptor及其子类就不再添加过滤器 by [jingheee](https://github.com/jingheee)
 
 ## v1.4.5 - 2022-09-18
 
