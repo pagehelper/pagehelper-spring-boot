@@ -29,7 +29,7 @@
 
     <groupId>com.github.pagehelper</groupId>
     <artifactId>pagehelper-spring-boot</artifactId>
-    <version>1.4.6</version>
+    <version>${revision}</version>
     <packaging>pom</packaging>
 
     <name>pagehelper-spring-boot</name>
@@ -63,15 +63,17 @@
     </modules>
 
     <properties>
+        <revision>1.4.7</revision>
+
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <mybatis.version>3.5.10</mybatis.version>
-        <pagehelper.version>5.3.2</pagehelper.version>
-        <mybatis-spring-boot.version>2.2.2</mybatis-spring-boot.version>
-        <spring-boot.version>2.7.3</spring-boot.version>
+        <mybatis.version>3.5.13</mybatis.version>
+        <pagehelper.version>5.3.3</pagehelper.version>
+        <mybatis-spring-boot.version>2.3.1</mybatis-spring-boot.version>
+        <spring-boot.version>2.7.12</spring-boot.version>
     </properties>
 
     <dependencyManagement>
@@ -198,6 +200,31 @@
                         <phase>package</phase>
                         <goals>
                             <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>flatten-maven-plugin</artifactId>
+                <version>1.1.0</version>
+                <configuration>
+                    <updatePomFile>true</updatePomFile>
+                    <flattenMode>resolveCiFriendliesOnly</flattenMode>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>flatten</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>flatten</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>flatten.clean</id>
+                        <phase>clean</phase>
+                        <goals>
+                            <goal>clean</goal>
                         </goals>
                     </execution>
                 </executions>

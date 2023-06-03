@@ -16,9 +16,16 @@ Add the following dependency to your pom.xml:
 <dependency>
   <groupId>com.github.pagehelper</groupId>
   <artifactId>pagehelper-spring-boot-starter</artifactId>
-  <version>1.4.6</version>
+  <version>1.4.7</version>
 </dependency>
 ```
+
+## v1.4.7 - 2023-06-03
+
+- 升级 PageHelper 到 5.3.3
+- 升级 MyBatis 到 3.5.13
+- 升级 MyBatis Starter 到 2.3.1
+- 升级 springboot 到 2.7.12
 
 ## v1.4.6 - 2022-11-28
 
