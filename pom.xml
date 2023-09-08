@@ -63,17 +63,17 @@
     </modules>
 
     <properties>
-        <revision>1.4.7</revision>
+        <revision>1.5.0</revision>
 
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <mybatis.version>3.5.13</mybatis.version>
         <pagehelper.version>5.3.3</pagehelper.version>
-        <mybatis-spring-boot.version>2.3.1</mybatis-spring-boot.version>
-        <spring-boot.version>2.7.12</spring-boot.version>
+        <mybatis-spring-boot.version>3.0.1</mybatis-spring-boot.version>
+        <spring-boot.version>3.0.10</spring-boot.version>
     </properties>
 
     <dependencyManagement>

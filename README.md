@@ -22,6 +22,12 @@ Add the following dependency to your pom.xml:
 
 ## v1.4.7 - 2023-06-03
 
+- 升级 JDK 到 17
+- 升级 MyBatis Starter 到 3.0.1
+- 升级 springboot 到 3.0.10
+
+## v1.4.7 - 2023-06-03
+
 - 升级 PageHelper 到 5.3.3
 - 升级 MyBatis 到 3.5.13
 - 升级 MyBatis Starter 到 2.3.1
