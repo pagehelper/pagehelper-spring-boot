@@ -50,7 +50,7 @@ public class SampleMapperApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        PageHelper.startPage(1, 20);
+        PageHelper.startPage(1, 20).disableAsyncCount();
         List<User> users = userMapper.findAll();
         System.out.println("Total: " + ((Page) users).getTotal());
         for (User user : users) {

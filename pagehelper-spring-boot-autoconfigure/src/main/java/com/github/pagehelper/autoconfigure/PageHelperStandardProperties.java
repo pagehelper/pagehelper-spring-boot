@@ -44,6 +44,8 @@ public class PageHelperStandardProperties {
     private Boolean keepOrderBy;
     private Boolean keepSubSelectOrderBy;
     private String sqlParser;
+    private Boolean asyncCount;
+    private String countSqlParser;
 
     @Autowired
     public PageHelperStandardProperties(PageHelperProperties properties) {
@@ -250,5 +252,23 @@ public class PageHelperStandardProperties {
     public void setSqlParser(String sqlParser) {
         this.sqlParser = sqlParser;
         Optional.ofNullable(sqlParser).ifPresent(v -> properties.setProperty("sqlParser", v));
+    }
+
+    public Boolean getAsyncCount() {
+        return asyncCount;
+    }
+
+    public void setAsyncCount(Boolean asyncCount) {
+        this.asyncCount = asyncCount;
+        Optional.ofNullable(asyncCount).ifPresent(v -> properties.setProperty("asyncCount", v.toString()));
+    }
+
+    public String getCountSqlParser() {
+        return countSqlParser;
+    }
+
+    public void setCountSqlParser(String countSqlParser) {
+        this.countSqlParser = countSqlParser;
+        Optional.ofNullable(countSqlParser).ifPresent(v -> properties.setProperty("countSqlParser", v));
     }
 }

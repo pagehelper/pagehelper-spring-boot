@@ -148,4 +148,20 @@ public class PageHelperProperties extends Properties {
     public void setAutoDialectClass(String autoDialectClass) {
         setProperty("autoDialectClass", autoDialectClass);
     }
+
+    public Boolean getAsyncCount() {
+        return Boolean.valueOf(getProperty("asyncCount"));
+    }
+
+    public void setAsyncCount(Boolean asyncCount) {
+        setProperty("asyncCount", asyncCount.toString());
+    }
+
+    public String getCountSqlParser(String countSqlParser) {
+        return getProperty("countSqlParser");
+    }
+
+    public void setCountSqlParser(String countSqlParser) {
+        setProperty("countSqlParser", countSqlParser);
+    }
 }

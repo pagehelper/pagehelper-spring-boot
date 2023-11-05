@@ -4,7 +4,7 @@ PageHelper-Spring-Boot-Starter 帮助你集成分页插件到 Spring Boot。
 
 PageHelper-Spring-Boot-Starter will help you use PageHelper with Spring Boot.
 
-Support PageHelper 5.x
+Support PageHelper 6.x
 
 ## How to use
 在 pom.xml 中添加如下依赖：
@@ -16,8 +16,21 @@ Add the following dependency to your pom.xml:
 <dependency>
   <groupId>com.github.pagehelper</groupId>
   <artifactId>pagehelper-spring-boot-starter</artifactId>
-  <version>1.4.7</version>
+  <version>2.0.0</version>
 </dependency>
+```
+
+## v2.0.0 - 2023-11-05
+
+- 升级 PageHelper 到 6.0.0，支持异步 count 等功能，详细查看 [6.0](https://github.com/pagehelper/Mybatis-PageHelper/releases/tag/v6.0.0)
+- 升级 MyBatis 到 3.5.15
+- 升级 springboot 到 2.7.17
+- 新增参数 `asyncCount`，增加异步count支持，默认`false`，单次设置：`PageHelper.startPage(1, 10).enableAsyncCount()`;
+- 新增参数 `countSqlParser`，`CountSqlParser`改为接口，允许通过`countSqlParser`参数替换为自己的实现
+
+参数示例：
+```properties
+pagehelper.async-count=true
 ```
 
 ## v1.4.7 - 2023-06-03
