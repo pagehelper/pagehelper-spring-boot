@@ -57,6 +57,13 @@ public class SampleMapperApplication implements CommandLineRunner {
             System.out.println("Name: " + user.getName());
         }
 
+        PageHelper.orderBy("id desc");
+        users = userMapper.findAll();
+        System.out.println("Total: " + ((Page) users).getTotal());
+        for (User user : users) {
+            System.out.println("Name: " + user.getName());
+        }
+
         PageRowBounds rowBounds = new PageRowBounds(3, 5);
         users = userMapper.findAll(rowBounds);
         System.out.println("Total: " + rowBounds.getTotal());

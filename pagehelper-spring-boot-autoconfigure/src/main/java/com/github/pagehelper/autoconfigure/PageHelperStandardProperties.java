@@ -46,6 +46,8 @@ public class PageHelperStandardProperties {
     private String sqlParser;
     private Boolean asyncCount;
     private String countSqlParser;
+    private String orderBySqlParser;
+    private String sqlServerSqlParser;
 
     @Autowired
     public PageHelperStandardProperties(PageHelperProperties properties) {
@@ -270,5 +272,23 @@ public class PageHelperStandardProperties {
     public void setCountSqlParser(String countSqlParser) {
         this.countSqlParser = countSqlParser;
         Optional.ofNullable(countSqlParser).ifPresent(v -> properties.setProperty("countSqlParser", v));
+    }
+
+    public String getOrderBySqlParser() {
+        return orderBySqlParser;
+    }
+
+    public void setOrderBySqlParser(String orderBySqlParser) {
+        this.orderBySqlParser = orderBySqlParser;
+        Optional.ofNullable(orderBySqlParser).ifPresent(v -> properties.setProperty("orderBySqlParser", v));
+    }
+
+    public String getSqlServerSqlParser() {
+        return sqlServerSqlParser;
+    }
+
+    public void setSqlServerSqlParser(String sqlServerSqlParser) {
+        this.sqlServerSqlParser = sqlServerSqlParser;
+        Optional.ofNullable(sqlServerSqlParser).ifPresent(v -> properties.setProperty("sqlServerSqlParser", v));
     }
 }

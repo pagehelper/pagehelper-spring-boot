@@ -16,9 +16,19 @@ Add the following dependency to your pom.xml:
 <dependency>
   <groupId>com.github.pagehelper</groupId>
   <artifactId>pagehelper-spring-boot-starter</artifactId>
-  <version>2.0.0</version>
+  <version>2.1.0</version>
 </dependency>
 ```
+
+## v2.1.0 - 2023-12-17
+
+- 升级 PageHelper 到 6.1.0，支持异步 count
+  等功能，详细查看 [6.1.0](https://github.com/pagehelper/Mybatis-PageHelper/releases/tag/6.1.0)
+- 升级 MyBatis 到 3.5.15
+- 升级 springboot 到 2.7.18
+- 新增参数 `orderBySqlParser`，`OrderBySqlParser`改为接口，允许通过`orderBySqlParser`参数替换为自己的实现
+- 新增参数 `sqlServerSqlParser`，`SqlServerSqlParser`改为接口，允许通过`sqlServerSqlParser`参数替换为自己的实现
+- 接口 `CountSqlParser`,`OrderBySqlParser`,`SqlServerSqlParser` 还支持SPI方式覆盖默认实现，优先级低于参数指定
 
 ## v2.0.0 - 2023-11-05
 

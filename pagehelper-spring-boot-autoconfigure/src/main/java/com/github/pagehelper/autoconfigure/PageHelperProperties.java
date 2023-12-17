@@ -157,11 +157,27 @@ public class PageHelperProperties extends Properties {
         setProperty("asyncCount", asyncCount.toString());
     }
 
-    public String getCountSqlParser(String countSqlParser) {
+    public String getCountSqlParser() {
         return getProperty("countSqlParser");
     }
 
     public void setCountSqlParser(String countSqlParser) {
         setProperty("countSqlParser", countSqlParser);
+    }
+
+    public String getOrderBySqlParser() {
+        return getProperty("orderBySqlParser");
+    }
+
+    public void setOrderBySqlParser(String orderBySqlParser) {
+        setProperty("orderBySqlParser", orderBySqlParser);
+    }
+
+    public String getSqlServerSqlParser() {
+        return getProperty("sqlServerSqlParser");
+    }
+
+    public void setSqlServerSqlParser(String sqlServerSqlParser) {
+        setProperty("sqlServerSqlParser", sqlServerSqlParser);
     }
 }
