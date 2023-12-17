@@ -20,10 +20,14 @@ Add the following dependency to your pom.xml:
 </dependency>
 ```
 
+## 微信公众号
+
+<img src="wx_mybatis.jpg" height="300"/>
+
 ## v2.1.0 - 2023-12-17
 
 - 升级 PageHelper 到 6.1.0，支持异步 count
-  等功能，详细查看 [6.1.0](https://github.com/pagehelper/Mybatis-PageHelper/releases/tag/6.1.0)
+  等功能，详细查看 [6.1.0](https://github.com/pagehelper/Mybatis-PageHelper/releases/tag/v6.1.0)
 - 升级 MyBatis 到 3.5.15
 - 升级 springboot 到 2.7.18
 - 新增参数 `orderBySqlParser`，`OrderBySqlParser`改为接口，允许通过`orderBySqlParser`参数替换为自己的实现
@@ -242,3 +246,9 @@ If you want to control the order in which the interceptor plug-in, you can use t
 //Or
 @AutoConfigureBefore(PageHelperAutoConfiguration.class)
 ```
+
+## 感谢所有项目贡献者！
+
+<a href="https://github.com/pagehelper/pagehelper-spring-boot/graphs/contributors">
+  <img src="https://contributors-img.web.app/image?repo=pagehelper/pagehelper-spring-boot" />
+</a>
