@@ -37,6 +37,7 @@
     <modules>
         <module>pagehelper-spring-boot-sample-annotation</module>
         <module>pagehelper-spring-boot-sample-xml</module>
+        <module>pagehelper-spring-boot-samples-multi-sqlsessionfactory</module>
     </modules>
     <dependencyManagement>
         <dependencies>
