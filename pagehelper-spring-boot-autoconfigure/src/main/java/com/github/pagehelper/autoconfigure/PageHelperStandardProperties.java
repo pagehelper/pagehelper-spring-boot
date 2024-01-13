@@ -3,6 +3,7 @@ package com.github.pagehelper.autoconfigure;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -48,6 +49,7 @@ public class PageHelperStandardProperties {
     private String countSqlParser;
     private String orderBySqlParser;
     private String sqlServerSqlParser;
+    private List<String> excludeSqlSessionFactoryName;
 
     @Autowired
     public PageHelperStandardProperties(PageHelperProperties properties) {
@@ -290,5 +292,14 @@ public class PageHelperStandardProperties {
     public void setSqlServerSqlParser(String sqlServerSqlParser) {
         this.sqlServerSqlParser = sqlServerSqlParser;
         Optional.ofNullable(sqlServerSqlParser).ifPresent(v -> properties.setProperty("sqlServerSqlParser", v));
+    }
+
+    public List<String> getExcludeSqlSessionFactoryName() {
+        return excludeSqlSessionFactoryName;
+    }
+
+    public void setExcludeSqlSessionFactoryName(List<String> excludeSqlSessionFactoryName) {
+        this.excludeSqlSessionFactoryName = excludeSqlSessionFactoryName;
+        Optional.ofNullable(excludeSqlSessionFactoryName).ifPresent(properties::setExcludeSqlSessionFactoryName);
     }
 }

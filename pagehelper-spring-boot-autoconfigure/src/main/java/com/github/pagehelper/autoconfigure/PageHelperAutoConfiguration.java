@@ -32,10 +32,14 @@ import org.springframework.beans.factory.InitializingBean;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Lazy;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Optional;
+import java.util.Set;
 
 /**
  * 自定注入分页插件
@@ -54,22 +58,48 @@ public class PageHelperAutoConfiguration implements InitializingBean {
 
     private final PageHelperProperties properties;
 
-    public PageHelperAutoConfiguration(List<SqlSessionFactory> sqlSessionFactoryList, PageHelperStandardProperties standardProperties) {
+    private ApplicationContext applicationContext;
+
+    public PageHelperAutoConfiguration(List<SqlSessionFactory> sqlSessionFactoryList, PageHelperStandardProperties standardProperties, ApplicationContext applicationContext) {
         this.sqlSessionFactoryList = sqlSessionFactoryList;
         this.properties = standardProperties.getProperties();
+        this.applicationContext = applicationContext;
     }
 
     @Override
     public void afterPropertiesSet() throws Exception {
         PageInterceptor interceptor = new PageInterceptor();
         interceptor.setProperties(this.properties);
+        // 加载需要排除的SqlSessionFactory
+        Set<SqlSessionFactory> excludeSqlSessionFactory = loadExcludeSqlSessionFactory();
         for (SqlSessionFactory sqlSessionFactory : sqlSessionFactoryList) {
+            if (excludeSqlSessionFactory.contains(sqlSessionFactory)) {
+                continue;
+            }
             org.apache.ibatis.session.Configuration configuration = sqlSessionFactory.getConfiguration();
             if (!containsInterceptor(configuration, interceptor)) {
                 configuration.addInterceptor(interceptor);
             }
         }
     }
+
+    /**
+     * 加载需要排除的 SqlSessionFactory
+     * @return 不需要增加 pageHelper 的集合
+     */
+    private Set<SqlSessionFactory> loadExcludeSqlSessionFactory() {
+        Set<SqlSessionFactory> excludeSqlSessionFactory = new HashSet<>();
+        Optional.ofNullable(properties.getExcludeSqlSessionFactoryName())
+                .ifPresent(sqlSessionFactoryBeanNameList -> {
+                    sqlSessionFactoryBeanNameList.forEach(sqlSessionFactoryBeanName -> {
+                        SqlSessionFactory sqlSessionFactory = applicationContext.getBean(sqlSessionFactoryBeanName, SqlSessionFactory.class);
+                        excludeSqlSessionFactory.add(sqlSessionFactory);
+                    });
+        });
+        return excludeSqlSessionFactory;
+    }
+
+
 
     /**
      * 是否已经存在相同的拦截器

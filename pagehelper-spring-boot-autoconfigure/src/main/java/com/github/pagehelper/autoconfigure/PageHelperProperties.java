@@ -26,6 +26,7 @@ package com.github.pagehelper.autoconfigure;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
+import java.util.List;
 import java.util.Properties;
 
 /**
@@ -36,6 +37,8 @@ import java.util.Properties;
 @ConfigurationProperties(prefix = PageHelperProperties.PAGEHELPER_PREFIX)
 public class PageHelperProperties extends Properties {
     public static final String PAGEHELPER_PREFIX = "pagehelper";
+
+    private List<String> excludeSqlSessionFactoryName;
 
     public Boolean getOffsetAsPageNum() {
         return Boolean.valueOf(getProperty("offsetAsPageNum"));
@@ -179,5 +182,13 @@ public class PageHelperProperties extends Properties {
 
     public void setSqlServerSqlParser(String sqlServerSqlParser) {
         setProperty("sqlServerSqlParser", sqlServerSqlParser);
+    }
+
+    public List<String> getExcludeSqlSessionFactoryName() {
+        return excludeSqlSessionFactoryName;
+    }
+
+    public void setExcludeSqlSessionFactoryName(List<String> excludeSqlSessionFactoryName) {
+        this.excludeSqlSessionFactoryName = excludeSqlSessionFactoryName;
     }
 }
