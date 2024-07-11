@@ -182,10 +182,10 @@ public class PageHelperProperties extends Properties {
     }
 
     public void setBannerEnabled(Boolean bannerEnabled) {
-        setProperty("bannerEnabled",bannerEnabled.toString());
+        setProperty("banner",bannerEnabled.toString());
     }
 
     public Boolean getBannerEnabled() {
-        return Boolean.valueOf(getProperty("bannerEnabled"));
+        return Boolean.valueOf(getProperty("banner"));
     }
 }
