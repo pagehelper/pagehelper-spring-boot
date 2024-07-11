@@ -180,4 +180,12 @@ public class PageHelperProperties extends Properties {
     public void setSqlServerSqlParser(String sqlServerSqlParser) {
         setProperty("sqlServerSqlParser", sqlServerSqlParser);
     }
+
+    public void setBannerEnabled(Boolean bannerEnabled) {
+        setProperty("bannerEnabled",bannerEnabled.toString());
+    }
+
+    public Boolean getBannerEnabled() {
+        return Boolean.valueOf(getProperty("bannerEnabled"));
+    }
 }
