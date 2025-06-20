@@ -16,13 +16,20 @@ Add the following dependency to your pom.xml:
 <dependency>
   <groupId>com.github.pagehelper</groupId>
   <artifactId>pagehelper-spring-boot-starter</artifactId>
-  <version>2.1.0</version>
+  <version>2.1.1</version>
 </dependency>
 ```
 
 ## 微信公众号
 
 <img src="wx_mybatis.jpg" height="300"/>
+
+## v2.1.1 - 2025-06-20
+
+- 升级 PageHelper 到 6.1.1
+- 升级 MyBatis 到 3.5.19
+
+后续版本会考虑升级 mybatis-spring-boot-starter 到 3.x 版本（JDK17+）
 
 ## v2.1.0 - 2023-12-17
 

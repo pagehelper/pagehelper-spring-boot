@@ -63,15 +63,15 @@
     </modules>
 
     <properties>
-        <revision>2.1.0</revision>
+        <revision>2.1.1</revision>
 
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <mybatis.version>3.5.15</mybatis.version>
-        <pagehelper.version>6.1.0</pagehelper.version>
+        <mybatis.version>3.5.19</mybatis.version>
+        <pagehelper.version>6.1.1</pagehelper.version>
         <mybatis-spring-boot.version>2.3.2</mybatis-spring-boot.version>
         <spring-boot.version>2.7.18</spring-boot.version>
     </properties>
