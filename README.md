@@ -29,7 +29,10 @@ Add the following dependency to your pom.xml:
 - 升级 PageHelper 到 6.1.1
 - 升级 MyBatis 到 3.5.19
 
-后续版本会考虑升级 mybatis-spring-boot-starter 到 3.x 版本（JDK17+）
+**当前版本支持 JDK17+ 和以下依赖版本：**
+
+- mybatis-spring-boot-starter 3.0.4
+- spring-boot-dependencies 3.5.0
 
 ## v2.1.0 - 2023-12-17
 
