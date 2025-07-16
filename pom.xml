@@ -63,15 +63,15 @@
     </modules>
 
     <properties>
-        <revision>2.1.1</revision>
+        <revision>2.1.0</revision>
 
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <mybatis.version>3.5.19</mybatis.version>
-        <pagehelper.version>6.1.1</pagehelper.version>
+        <mybatis.version>3.5.15</mybatis.version>
+        <pagehelper.version>6.1.0</pagehelper.version>
         <mybatis-spring-boot.version>2.3.2</mybatis-spring-boot.version>
         <spring-boot.version>2.7.18</spring-boot.version>
     </properties>
@@ -81,32 +81,32 @@
             <dependency>
                 <groupId>org.mybatis</groupId>
                 <artifactId>mybatis</artifactId>
-                <version>${mybatis.version}</version>
+                <version>3.5.10</version>
             </dependency>
             <dependency>
                 <groupId>com.github.pagehelper</groupId>
                 <artifactId>pagehelper</artifactId>
-                <version>${pagehelper.version}</version>
+                <version>6.1.0</version>
             </dependency>
             <dependency>
                 <groupId>org.mybatis.spring.boot</groupId>
                 <artifactId>mybatis-spring-boot-autoconfigure</artifactId>
-                <version>${mybatis-spring-boot.version}</version>
+                <version>2.3.2</version>
             </dependency>
             <dependency>
                 <groupId>com.github.pagehelper</groupId>
                 <artifactId>pagehelper-spring-boot-autoconfigure</artifactId>
-                <version>${project.version}</version>
+                <version>2.1.0</version>
             </dependency>
             <dependency>
                 <groupId>com.github.pagehelper</groupId>
                 <artifactId>pagehelper-spring-boot-starter</artifactId>
-                <version>${project.version}</version>
+                <version>2.1.0</version>
             </dependency>
             <dependency>
                 <groupId>org.mybatis.spring.boot</groupId>
                 <artifactId>mybatis-spring-boot-starter</artifactId>
-                <version>${mybatis-spring-boot.version}</version>
+                <version>3.0.0</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework.boot</groupId>
